@@ -63,4 +63,19 @@ describe Admin::CategoriesController do
     assert_raise(ActiveRecord::RecordNotFound) { Category.find(test_id) }
   end
   
+  describe "test_new" do 
+    it "create_new_category" do
+      test_id = Factory(:category).id
+      get :new
+      expect(assigns(:category)).to be_a_new(Category)
+    end
+  end
+  
+  describe "test_save" do
+    it "saves_new_category" do
+      test_id = Factory(:category).id
+      get :new
+      expect(assigns(:category)).to be_a_new(Category)
+    end
+  end
 end
